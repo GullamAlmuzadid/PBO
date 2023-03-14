@@ -1,0 +1,214 @@
+Nama 	: Gullam Almuzadid
+NIM	: A11.2021.13743
+Kelp.	: A11.4405
+
+1.
+- Waktu.java
+public class Waktu {
+    int detik;
+    int menit;
+    int jam;
+
+    public Waktu(int jam, int menit, int detik) {
+        this.jam = jam;
+        this.menit = menit;
+        this.detik = detik;
+    }
+
+    public static void main(String[] args) {
+        // membuat objek dari class Waktu
+        Waktu mulai = new Waktu(8, 12, 15);
+        Waktu selesai = new Waktu(12, 34, 55);
+        Waktu selisih;
+
+        // memanggil method perbedaan
+        selisih = perbedaan(mulai, selesai);
+
+        System.out.printf("Selisih Waktu: %d:%d:%d - %d:%d:%d = %d:%d:%d\n", selesai.jam, selesai.menit, selesai.detik,
+                mulai.jam, mulai.menit, mulai.detik, selisih.jam, selisih.menit, selisih.detik);
+    }
+
+    public static Waktu perbedaan(Waktu mulai, Waktu selesai) {
+        Waktu selisih = new Waktu(0, 0, 0);
+
+        if (mulai.detik > selesai.detik) {
+            --selesai.menit;
+            selesai.detik += 60;
+        }
+
+        selisih.detik = selesai.detik - mulai.detik;
+
+        if (mulai.menit > selesai.menit) {
+            --selesai.jam;
+            selesai.menit += 60;
+        }
+
+        selisih.menit = selesai.menit - mulai.menit;
+        selisih.jam = selesai.jam - mulai.jam;
+
+        return (selisih);
+    }
+}
+
+- Complex.java
+public class Complex{
+    double real;
+    double imag;
+
+    public Complex(double real, double imag){
+        this.real = real;
+        this.imag = imag;
+    }
+
+    public static void main (String[] args){
+        Complex n1 = new Complex(2.3, 4.5),
+                n2 = new Complex(3.4, 5.0),
+                temp;
+        temp = add(n1,n2);
+
+        System.out.printf("Sum = %.1f + %.1fi", temp.real, temp.imag);
+    }
+
+    public static Complex add (Complex n1, Complex n2)
+    {
+        Complex temp = new Complex(0.0, 0.0);
+
+        temp.real = n1.real + n2.real;
+        temp.imag = n1.imag + n2.imag;
+
+        return(temp);
+    }
+}
+
+
+
+2.
+- Waktu.java
+Pada program Waktu.java, memiliki tiga atribut yaitu "detik", "menit", dan "jam". Terdapat juga constructor pada class tersebut untuk menginisialisasi nilai atribut saat objek dibuat.
+
+Pada method "main", terdapat objek "mulai" dan "selesai" yang diinisialisasi dengan memanggil constructor dari class "Waktu". Kemudian, terdapat juga objek "selisih" yang diinisialisasi dengan memanggil method "perbedaan" dengan parameter "mulai" dan "selesai".
+
+Pada method "perbedaan", terdapat sebuah objek "selisih" yang juga merupakan objek dari class "Waktu" yang diinisialisasi dengan nilai awal (0,0,0). Kemudian, terdapat serangkaian kondisi yang mengecek apakah nilai detik dan menit dari waktu mulai lebih besar dari nilai detik dan menit dari waktu selesai. Jika ya, maka nilai detik atau menit selesai akan ditambah dengan 60 dan menit atau jam selesai akan dikurangi satu. Hal ini dilakukan agar hasil perhitungan selisih waktu tidak negatif.
+
+Setelah kondisi-kondisi tersebut, dilakukan perhitungan selisih waktu dengan mengurangi nilai detik, menit, dan jam selesai dengan nilai detik, menit, dan jam mulai. Kemudian, objek "selisih" akan dikembalikan sebagai hasil method.
+
+Berikut adalah ilustrasi alur kerja pemanggilan class, method, dan variabel pada program tersebut:
+             +-------------+
+             |    Waktu    |
+             +-------------+
+             | detik       |
+             | menit       |
+             | jam         |
+             +-------------+
+             | Waktu()     |
+             | perbedaan() |
+             +-------------+
+                   ^
+                   |
+                   |
+                   v
++-------------+    +-------------+
+|     main    |    |   perbedaan |
++-------------+    +-------------+
+| Waktu()     |    | selisih()   |
+| perbedaan() |    +-------------+
++-------------+          ^
+             ^            |
+             |            |
+             v            |
+          +-------------+ |
+          |   Waktu()   |-+
+          | mulai,      |
+          | selesai,    |
+          | selisih     |
+          +-------------+
+
+ 
+- Complex.java
+Program di atas adalah sebuah program untuk melakukan penjumlahan antara dua bilangan kompleks. Berikut adalah alur kerja pemanggilan class, method, dan variabel dalam program tersebut:
+
+	1.Program dimulai dengan mendefinisikan class Complex yang 	memiliki dua atribut yaitu real dan imag.
+
+	2.Kemudian, program membuat constructor untuk class Complex yang 	memiliki dua parameter yaitu real dan imag. Constructor ini 	digunakan untuk menginisialisasi nilai real dan imag ketika 	objek dibuat.
+
+	3.Setelah itu, program memasuki method main yang merupakan entry 	point dari program. Pada method ini, program membuat dua objek 	Complex yaitu n1 dan n2 yang masing-masing diinisialisasi dengan 	nilai 2.3 + 4.5i dan 3.4 + 5.0i.
+
+	4.Program juga membuat objek Complex temp yang nantinya akan 	digunakan untuk menampung hasil penjumlahan n1 dan n2.
+
+	5.Program memanggil method add dengan dua parameter yaitu objek 	n1 dan n2. Method ini akan mengembalikan objek Complex baru yang 	merupakan hasil penjumlahan n1 dan n2.
+
+	6.Objek yang dihasilkan dari method add disimpan ke dalam 	variabel temp.
+
+	7.Terakhir, program mencetak hasil penjumlahan dalam format "Sum 	= a + bi", dengan a dan b adalah bagian real dan imag dari objek 	temp.
+
+Berikut adalah ilustrasi dari alur kerja program:
+
+        +-----------------------+
+        |      Class Complex    |
+        |-----------------------|
+        | double real           |
+        | double imag           |
+        |-----------------------|
+        | Complex(double, double)|
+        | static Complex add(Complex, Complex)|
+        +-----------------------+
+                  |              
+                  | creates      
+                  |              
+         +--------+--------+
+         |                 |
+         |     Object n1   |
+         | real = 2.3      |
+         | imag = 4.5      |
+         |                 |
+         +--------+--------+
+                  |              
+                  | creates      
+                  |              
+         +--------+--------+
+         |                 |
+         |     Object n2   |
+         | real = 3.4      |
+         | imag = 5.0      |
+         |                 |
+         +--------+--------+
+                  |              
+                  | creates      
+                  |              
+         +--------+--------+
+         |                 |
+         |     Object temp |
+         | real = 0.0      |
+         | imag = 0.0      |
+         |                 |
+         +--------+--------+
+                  |              
+                  |  calls   
+                  |              
+                  v              
+         +--------+--------+
+         |   Method add     |
+         |------------------|
+         | static Complex add(Complex, Complex)|
+         +--------+--------+
+                  |              
+                  | returns     
+                  |              
+         +--------+--------+
+         |                 |
+         |   Object temp   |
+         | real = 5.7      |
+         | imag = 9.5      |
+         |                 |
+         +--------+--------+
+                  |              
+                  |  prints    
+                  |              
+                  v              
+        +------------------------+
+        |    Sum = 5.7 + 9.5i     |
+        +------------------------+
+
+3. Variabel detik di dalam class Waktu adalah variabel yang didefinisikan sebagai atribut dari class Waktu. Sedangkan variabel detik di dalam konstruktor Waktu adalah parameter yang digunakan untuk menginisialisasi nilai dari atribut detik.
+
+Dalam deklarasi atribut detik di dalam class Waktu, kita hanya menentukan tipe data dan nama variabelnya, tanpa memberikan nilai apapun. Sedangkan pada konstruktor Waktu, kita memberikan nilai detik dengan menggunakan parameter yang diberikan pada saat pembuatan objek Waktu. Oleh karena itu, variabel detik di dalam class Waktu hanya menyimpan tipe data dan nama variabelnya, sedangkan variabel detik di dalam konstruktor Waktu menyimpan nilai yang diambil dari parameter.
