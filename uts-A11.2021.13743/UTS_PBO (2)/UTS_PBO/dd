@@ -1,0 +1,121 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Mahasiswa {
+    protected String nim;
+    protected String nama;
+    protected int semester;
+    protected int usia;
+    protected ArrayList<String> krs;
+
+    public float hitungRataNilai(ArrayList<Integer> nilai) {
+        int total = 0;
+        for (int n : nilai) {
+            total += n;
+        }
+        return (float) total / nilai.size();
+    }
+
+    public void infoMahasiswa() {
+        System.out.println("NIM: " + nim);
+        System.out.println("Nama: " + nama);
+        System.out.println("Semester: " + semester);
+        System.out.println("Usia: " + usia);
+    }
+
+    public void infoKrsMahasiswa() {
+        System.out.println("KRS: ");
+        for (String matkul : krs) {
+            System.out.println(matkul);
+        }
+    }
+}
+
+class MahasiswaBaru extends Mahasiswa {
+    private String asalSekolah;
+
+    public boolean ikutOspek() {
+        // Implementasi logika ospek
+        return true;
+    }
+
+    public void infoMahasiswa() {
+        super.infoMahasiswa();
+        System.out.println("Asal Sekolah: " + asalSekolah);
+    }
+}
+
+class MahasiswaAktif extends Mahasiswa {
+    // Tidak ada atribut atau method tambahan pada MahasiswaAktif
+}
+
+class MahasiswaLulus extends Mahasiswa {
+    private int tahunWisuda;
+    private float ipk;
+
+    public boolean ikutWisuda() {
+        // Implementasi logika ikut wisuda
+        return true;
+    }
+
+    public void infoMahasiswa() {
+        super.infoMahasiswa();
+        System.out.println("Tahun Wisuda: " + tahunWisuda);
+        System.out.println("IPK: " + ipk);
+    }
+}
+
+class MahasiswaTransfer extends Mahasiswa {
+    private String asalUniversitas;
+
+    public boolean ikutOspek() {
+        // Implementasi logika ospek untuk mahasiswa transfer
+        return true;
+    }
+
+    public void infoMahasiswa() {
+        super.infoMahasiswa();
+        System.out.println("Asal Universitas: " + asalUniversitas);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<Mahasiswa> daftarMahasiswa = new ArrayList<>();
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Masukkan jumlah mahasiswa: ");
+        int jumlahMahasiswa = scanner.nextInt();
+        scanner.nextLine(); // Membaca newline setelah input angka
+
+        for (int i = 0; i < jumlahMahasiswa; i++) {
+            System.out.println("Data Mahasiswa ke-" + (i + 1));
+
+            System.out.print("NIM: ");
+            String nim = scanner.nextLine();
+
+            System.out.print("Nama: ");
+            String nama = scanner.nextLine();
+
+            System.out.print("Semester: ");
+            int semester = scanner.nextInt();
+            scanner.nextLine(); // Membaca newline setelah input angka
+
+            System.out.print("Usia: ");
+            int usia = scanner.nextInt();
+            scanner.nextLine(); // Membaca newline setelah input angka
+
+            Mahasiswa mahasiswa = new Mahasiswa();
+            mahasiswa.nim = nim;
+            mahasiswa.nama = nama;
+            mahasiswa.semester = semester;
+            mahasiswa.usia = usia;
+
+            daftarMahasiswa.add(mahasiswa);
+        }
+
+        System.out.println("\nInfo Mahasiswa:");
+
+        for (Mahasiswa mahasiswa : daftarMahasiswa) {
+            mahasiswa.info
